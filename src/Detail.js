@@ -31,7 +31,7 @@ function Detail() {
           <img
             src={photo.urls.full}
             alt={photo.alt_description || "Photo"}
-            className="w-full h-auto md:w-1/2 max-w-sm rounded-md"
+            className="w-full h-auto max-h-screen md:w-1/2 max-w-full rounded-md"
           />
           <div className="mt-4 md:mt-0 md:w-1/2">
             <h2 className="text-2xl font-bold mb-2">

@@ -49,7 +49,6 @@ function Grid() {
           document.documentElement.offsetHeight - 200 &&
         !loading
       ) {
-        console.log("fetching more photos");
         fetchPhotos(page + 1);
         setPage(page + 1);
       }
@@ -58,6 +57,16 @@ function Grid() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [fetchPhotos]);
+
+  useEffect(() => {
+    if (
+      document.documentElement.scrollHeight <= window.innerHeight &&
+      !loading
+    ) {
+      fetchPhotos(page + 1);
+      setPage(page + 1);
+    }
+  }, [photos, loading, fetchPhotos, page]);
 
   return (
     <div className="">
